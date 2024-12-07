@@ -1,0 +1,26 @@
+:root {
+  --red: hsl(0, 100%, 68%)
+
+  // ### Neutral
+
+    --VeryDarkBlue: hsl(230, 29%, 20%);
+  --DarkGrayishBlue: hsl(230, 11%, 40%);
+  --GrayishBlue: hsl(231, 7%, 65%);
+  --LightGrayishBlue: hsl(207, 33%, 95%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Barlow";
+  line-height: 1;
+}
