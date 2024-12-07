@@ -7,6 +7,11 @@
   --new: hsl(207, 33%, 95%);
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -23,7 +28,6 @@ body {
   line-height: 1;
   height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 body::after {
   content: "";
@@ -50,12 +54,12 @@ nav {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 70%;
   margin: 0 auto;
 }
 
 .btn {
-  width: 45%;
+  width: 50%;
   border: none;
   border-radius: 5px;
   text-transform: uppercase;
@@ -133,6 +137,7 @@ nav {
   color: var(--description);
   margin-bottom: 5rem;
   width: 50%;
+  font-size: 1.8rem;
 }
 .hero__cta {
   display: flex;
@@ -144,8 +149,76 @@ nav {
   top: 40%; /* Center the image vertically relative to the hero section */
   transform: translateY(-40%); /* Adjusts vertical centering */
   width: 80%; /* Adjust as needed */
+  height: 70%;
 }
 .hero__img img {
   width: 100%;
   height: auto;
+}
+
+@media only screen and (max-width: 90em) {
+  .hero__dashboard {
+    flex-basis: 55%;
+  }
+  .hero__img img {
+    width: 70rem;
+  }
+}
+@media only screen and (max-width: 75em) {
+  .container {
+    max-width: 80%;
+  }
+  .hero__dashboard {
+    flex-basis: 60%;
+  }
+}
+@media only screen and (max-width: 70em) {
+  html {
+    font-size: 55%;
+  }
+}
+@media only screen and (max-width: 60em) {
+  body::after {
+    height: 70%;
+  }
+  .hero {
+    flex-direction: column;
+    gap: 5rem;
+    padding: 3.6rem 0;
+  }
+  .hero__dashboard {
+    flex-basis: 60%;
+    order: 2;
+  }
+  .hero__description {
+    font-size: 3rem;
+    width: 100%;
+  }
+  .hero .btn {
+    padding: 2rem 0;
+  }
+  .hero__img {
+    width: 70rem !important;
+    position: static;
+    transform: translateX(10%);
+    width: 100%;
+    order: 1;
+  }
+  .hero__img img {
+    width: 90rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  body::after {
+    height: 60%;
+  }
+  html {
+    font-size: 50%;
+  }
+  .primary-heading {
+    font-size: 5.8rem;
+  }
+  .hero__img img {
+    width: 100%;
+  }
 }
