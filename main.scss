@@ -1,41 +1,273 @@
-:root{
- // ## Colors
+:root {
+  // ## Colors
 
- // ### Primary
-  
- --red: hsl(0, 100%, 68%)
-  
-//  ### Neutral
-  
-  --VeryDarkBlue: hsl(230, 29%, 20%);
-  --DarkGrayishBlue: hsl(230, 11%, 40%);
+  // ### Primary
+
+  --btnBackground: hsl(0, 100%, 68%);
+
+  //  ### Neutral
+
+  --heading: hsl(230, 29%, 20%);
+  --description: hsl(230, 11%, 40%);
   --GrayishBlue: hsl(231, 7%, 65%);
-  --LightGrayishBlue: hsl(207, 33%, 95%);
+  --bg: hsla(235, 7%, 65%, 0.295);
+  --new: hsl(207, 33%, 95%);
 }
 
 //### Headings, Call-to-actions, Navigation
 //
 //- Family: [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed)
 //- Weights: 400, 700
-
-html{
+html,
+body {
+  overflow-x: hidden;
+}
+html {
   font-size: 62.5%;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-size: 1.8rem;
-  font-family: 'Barlow';
+  font-family: "Barlow", sans-serif;
   line-height: 1;
+  height: 100vh;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--bg);
+    width: 45%;
+    height: 50%;
+    z-index: -1;
+    border-bottom-left-radius: 100px;
+  }
 }
 
+h1,
+button,
+nav {
+  font-family: "Barlow Condensed", sans-serif;
+}
 
+.primary-heading {
+  font-size: 6.4rem;
+  text-transform: uppercase;
+  margin-bottom: 3.6rem;
+}
 
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+}
 
+.btn {
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 2rem;
+  font-weight: 700;
+  background-color: transparent;
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  &__schedudle {
+    color: var(--new);
+    background-color: var(--btnBackground);
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 
+  &__preview {
+    letter-spacing: 5px;
+    color: var(--GrayishBlue);
+  }
+}
 
+.nav {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: var(--heading);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+      color: var(--GrayishBlue);
+    }
+  }
+}
+
+.hero {
+  padding: 9.6rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &__dashboard {
+    flex-basis: 50%;
+  }
+
+  &__align {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  &__new {
+    background-color: black;
+    color: var(--new);
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+  }
+
+  &__monograph {
+    text-transform: uppercase;
+    color: var(--GrayishBlue);
+  }
+
+  &__description {
+    line-height: 1.2;
+    color: var(--description);
+    margin-bottom: 5rem;
+    width: 50%;
+    font-size: 1.8rem;
+  }
+
+  &__cta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__img {
+    position: absolute; /* Allows positioning relative to parent */
+    right: -40%; /* Pushes the image outside the right edge of the container */
+    top: 40%; /* Center the image vertically relative to the hero section */
+    transform: translateY(-40%); /* Adjusts vertical centering */
+    width: 80%; /* Adjust as needed */
+    height: 70%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 90em) {
+  .hero {
+    &__dashboard {
+      flex-basis: 55%;
+    }
+
+    &__img {
+      img {
+        width: 70rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 75em) {
+  .container {
+    max-width: 80%;
+  }
+  .hero {
+    &__dashboard {
+      flex-basis: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 70em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media only screen and (max-width: 60em) {
+  body {
+    &::after {
+      height: 70%;
+    }
+  }
+  .hero {
+    flex-direction: column;
+    gap: 5rem;
+    padding: 3.6rem 0;
+    &__dashboard {
+      flex-basis: 60%;
+      order: 2;
+    }
+
+    &__description {
+      font-size: 3rem;
+      width: 100%;
+    }
+
+    .btn {
+      padding: 2rem 0;
+    }
+
+    &__img {
+      width: 70rem !important;
+      position: static;
+      transform: translateX(10%);
+      width: 100%;
+      order: 1;
+
+      img {
+        width: 90rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  body {
+    &::after {
+      height: 60%;
+    }
+  }
+  html {
+    font-size: 50%;
+  }
+  .primary-heading {
+    font-size: 5.8rem;
+  }
+  .hero {
+    &__img {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
