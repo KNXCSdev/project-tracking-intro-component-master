@@ -93,6 +93,9 @@ nav {
   list-style: none;
   display: flex;
   gap: 4rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 .nav__link:link, .nav__link:visited {
   color: var(--heading);
@@ -157,6 +160,9 @@ nav {
 }
 
 @media only screen and (max-width: 90em) {
+  hr {
+    display: none;
+  }
   .hero__dashboard {
     flex-basis: 55%;
   }
@@ -209,11 +215,43 @@ nav {
   }
 }
 @media only screen and (max-width: 40em) {
+  .menu {
+    display: block !important;
+  }
+  .btn {
+    letter-spacing: 1px;
+  }
   body::after {
     height: 60%;
   }
   html {
     font-size: 50%;
+  }
+  hr {
+    display: block;
+    height: 1px;
+    color: var(--GrayishBlue);
+  }
+  .nav {
+    position: relative;
+  }
+  .nav__list {
+    position: absolute;
+    top: 220%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.13);
+    text-align: center;
+    padding: 3rem;
+    font-size: 3rem;
+  }
+  .nav__link:link, .nav__link:visited {
+    font-weight: 600;
   }
   .primary-heading {
     font-size: 5.8rem;
@@ -221,4 +259,13 @@ nav {
   .hero__img img {
     width: 100%;
   }
+}
+.menu {
+  display: none;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
